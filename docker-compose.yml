@@ -1,0 +1,20 @@
+version: '2'
+services:
+  go-rpc-client:
+    image: filtered/go-dev:latest
+    network_mode: "bridge"
+    volumes:
+      - .:/go/src/github.com/vavas/GO-TESTS
+    working_dir: /go/src/github.com/vavas/GO-TESTS
+    command: ./GO-TESTS
+    expose:
+      - 8080
+    environment:
+      PROJECT_NAME: go-rpc-client
+      PROJECT_BUILD: dev
+      LOGGER_DSN: address:port
+      DB_TEST_DSN:
+      DB_DSN:
+      DB_CA_CERTIFICATE:
+
+#      DB_MIGRATION_DIR: ./migrations
